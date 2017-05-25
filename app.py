@@ -68,7 +68,7 @@ def makeWebhookResult(req):
                         
                         
                         {
-                            "title":"Hi, "+ facebook_user_firstname +", I can help you find the best local business",                            
+                            "title":"Hi, "+ facebook_user_firstname +", I can help you find the best local café",                            
                             "image_url":"http://www.fiorita.cz/wp-content/uploads/2017/03/kvetinarstvi-praha-jarni-kytice-tulipany-anemony-pryskyrniky.jpg",
                             "subtitle":"The bouquet was tied by my developers. You can order flowers through their web",
                             #}
