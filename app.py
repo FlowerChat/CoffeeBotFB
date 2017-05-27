@@ -14,6 +14,7 @@ from flask import request
 from flask import make_response
 #import psycopg2
 import datetime
+strkeyfb=str(keyfb)
 
 
 
@@ -48,7 +49,7 @@ def makeWebhookResult(req):
         generic_conparams=generic_con.get("parameters")
     
         facebook_id=str(generic_conparams.get("facebook_sender_id"))
-        user_id_url="https://graph.facebook.com/v2.6/"+facebook_id+"?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token="+keyfb
+        user_id_url="https://graph.facebook.com/v2.6/"+facebook_id+"?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token="+strkeyfb
         user_req=requests.get(user_id_url)
         user_json=user_req.json()
         facebook_user_firstname=user_json["first_name"]
