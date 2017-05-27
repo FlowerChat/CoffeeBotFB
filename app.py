@@ -70,7 +70,7 @@ def makeWebhookResult(req):
                         
                         
                         {
-                            "title":"Hi, "+ facebook_user_firstname +", I can help you find the best local cafe",                            
+                            "title":"Hi, "+ facebook_user_firstname +", I can help you find the best local café",                            
                             "image_url":"http://www.fiorita.cz/wp-content/uploads/2017/03/kvetinarstvi-praha-jarni-kytice-tulipany-anemony-pryskyrniky.jpg",
                             "subtitle":"This bouquet was tied by my sponsors. You can order flowers through their web",
                             #}
@@ -122,7 +122,7 @@ def makeWebhookResult(req):
         
 
         facebook_message = {
-            "text":"You have chosen pick-up service from a local florist. For better service please share your current location:",
+            "text":"Great!. For better service please share your current location and I will send you info about cafés nearby",
             "quick_replies":[
                 {
                     "content_type":"location",
@@ -156,7 +156,7 @@ def makeWebhookResult(req):
         generic_conparams=generic_con.get("parameters")
     
         facebook_id=str(generic_conparams.get("facebook_sender_id"))
-        user_id_url="https://graph.facebook.com/v2.6/"+facebook_id+"?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token=EAARq6hqpYzMBACdg4Y2PXnoc8YlDkKysqZClfKC0X09aZBvklWsoNZAMP00ZCvrnm0O6nT2n1gh7YhDCnYvGWVbpPtzK5ZAa6qsjm98ZCZCmnmbc0hDZBBz6WGCSBCQ3Vm4FYnZBkyJdkbdHjZCHh98VOn8tM64Lyqvik3o2l23OfGIgZDZD"
+        user_id_url="https://graph.facebook.com/v2.6/"+facebook_id+"?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token=EAABfjhPfpDwBAEMdBzJFZAanstg21Q9cwLko70ptIUrrzuj6btRYVWZBibKVHJEIQS62DCNyYLN4FhMcP8jMtx6Ffj85ZCz22Bx0s3fM9FyP29wUZA8buvFe8lDSAhEAGPGyNwfZCjP090DkL1ZBwB5zir2TnuC2QiLm1jZAO7gFQZDZD"
         user_req=requests.get(user_id_url)
         user_json=user_req.json()
         facebook_user_firstname=user_json["first_name"]
@@ -173,7 +173,7 @@ def makeWebhookResult(req):
     
     #trying to retrieve pics
     
-        search_payload = {"key":key, "location":CustLoc, "radius": 5000, "type": "florist"}
+        search_payload = {"key":key, "location":CustLoc, "radius": 1000, "type": "cafe"}
         search_req = requests.get(search_url, params=search_payload)
         search_json = search_req.json()
         gplace_id=search_json["results"][0]["place_id"]
