@@ -47,7 +47,7 @@ def makeWebhookResult(req):
         generic_conparams=generic_con.get("parameters")
     
         facebook_id=str(generic_conparams.get("facebook_sender_id"))
-        user_id_url="https://graph.facebook.com/v2.6/"+facebook_id+"?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token=EAARq6hqpYzMBACdg4Y2PXnoc8YlDkKysqZClfKC0X09aZBvklWsoNZAMP00ZCvrnm0O6nT2n1gh7YhDCnYvGWVbpPtzK5ZAa6qsjm98ZCZCmnmbc0hDZBBz6WGCSBCQ3Vm4FYnZBkyJdkbdHjZCHh98VOn8tM64Lyqvik3o2l23OfGIgZDZD"
+        user_id_url="https://graph.facebook.com/v2.6/"+facebook_id+"?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token="+keyfb
         user_req=requests.get(user_id_url)
         user_json=user_req.json()
         facebook_user_firstname=user_json["first_name"]
