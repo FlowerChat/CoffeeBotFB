@@ -173,7 +173,7 @@ def makeWebhookResult(req):
     
     #trying to retrieve pics
     
-        search_payload = {"key":key, "location":CustLoc, "radius": 1000, "type": "cafe"}
+        search_payload = {"key":key, "location":CustLoc, "rankby": "distance", "type": "cafe"}
         search_req = requests.get(search_url, params=search_payload)
         search_json = search_req.json()
         gplace_id=search_json["results"][0]["place_id"]
