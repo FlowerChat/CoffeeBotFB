@@ -240,7 +240,7 @@ def makeWebhookResult(req):
         print(json.dumps(facebook_message))
         return {
             "data":{"facebook":facebook_message},
-            "contextOut": [{"name":"facebook_location", "lifespan":0},{"name":"generic","lifespan":0},{"name":"flowerchatline","facebook_user_first":facebook_user_firstname,"lifespan":100}]
+            "contextOut": [{"name":"facebook_location", "lifespan":0},{"name":"generic","lifespan":0},{"name":"coffeechat","facebook_user_first":facebook_user_firstname,"lifespan":100}]
         }
     elif req.get("result").get("action")=="search.florist":
         search_url = "https://maps.googleapis.com/maps/api/place/textsearch/json"
